@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-kube-express-app
+  labels:
+    app: docker-kube-express-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-kube-express-app
+  template:
+    metadata:
+      labels:
+        app: docker-kube-express-app
+    spec:
+      containers:
+      - name: docker-kube-express-app
+        image: adnicolae/docker-kube-express-app
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /status
+            port: 8080
+          initialDelaySeconds: 3
+          periodSeconds: 3
