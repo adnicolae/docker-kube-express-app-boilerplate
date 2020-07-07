@@ -17,10 +17,10 @@ This serves the `/status/` endpoint which is further tested on a [demo nginx rev
 ## Deployment
 ### Load YAML config
 Run the following commands to load the deployment and service configs onto EKS.
-`kubectl apply -f config/deployment.yaml`
-`kubectl apply -f config/service.yaml`
+- `kubectl apply -f config/deployment.yaml`
+- `kubectl apply -f config/service.yaml`
 
 ### Test deployment
 1. Run `kubectl get pods` and check the health of the newly created pod.
 2. Access the pod using `kubectl exec -it {{YOUR_POD_NAME}} bash`
-3. Run `curl http://localhost:8080/status/` and `curl http://docker-kube-express-app-svc:8080/status` which should return "Service available!"erves the `/status/` endpoint which is further tested on a [demo nginx reverse proxy](https://github.com/adnicolae/nginx-reverse-proxy) API gateway.
+3. Run `curl http://localhost:8080/status/` and `curl http://docker-kube-express-app-svc:8080/status` which should return "Service available!".
